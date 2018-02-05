@@ -10,25 +10,31 @@ class Blog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: 146
+      posts: [],
+      status: 147
     }
   }
 
   componentDidMount() {
     axios.get('https://jsonplaceholder.typicode.com/posts')
       .then(response => {
-        console.log(response);
+        this.setState({posts: response.data});
+        // console.log(response);
       });
   }
 
   render() {
+    const posts = this.state.posts.map(
+      post => {
+        return <Post key={post.id} title={post.title} />
+      }
+    );
+
     return (
       <div>
         <div>Status: {(this.state.status / 423 * 100).toFixed(1)}%</div>
         <section className="Posts">
-          <Post/>
-          <Post/>
-          <Post/>
+          {posts}
         </section>
         <section>
           <FullPost/>
