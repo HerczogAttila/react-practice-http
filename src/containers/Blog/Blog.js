@@ -12,7 +12,7 @@ class Blog extends Component {
     this.state = {
       posts: [],
       selectedPostId: null,
-      status: 151
+      status: 152
     }
   }
 
