@@ -13,12 +13,12 @@ class Blog extends Component {
       posts: [],
       selectedPostId: null,
       error: false,
-      status: 155
+      status: 157
     }
   }
 
   componentDidMount() {
-    axios.get('https://jsonplaceholder.typicode.com/posts')
+    axios.get('/posts')
       .then(response => {
         const posts = response.data.slice(0, 4);
         const updatedPosts = posts.map(post => {
