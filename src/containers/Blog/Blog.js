@@ -13,7 +13,7 @@ class Blog extends Component {
       posts: [],
       selectedPostId: null,
       error: false,
-      status: 154
+      status: 155
     }
   }
 
