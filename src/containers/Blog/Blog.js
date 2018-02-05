@@ -12,7 +12,8 @@ class Blog extends Component {
     this.state = {
       posts: [],
       selectedPostId: null,
-      status: 152
+      error: false,
+      status: 154
     }
   }
 
@@ -26,8 +27,12 @@ class Blog extends Component {
             author: 'Max'
           }
         });
-        this.setState({posts: updatedPosts});
+        this.setState({posts: updatedPosts, error: false});
         // console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+        this.setState({error: true});
       });
   }
 
@@ -36,11 +41,14 @@ class Blog extends Component {
   }
 
   render() {
-    const posts = this.state.posts.map(
-      post => {
-        return <Post clicked={() => {this.postSelectedHandler(post.id)}} key={post.id} title={post.title} author={post.author} />
-      }
-    );
+    let posts = <p style={{textAlign: 'center'}}>Something went wrong!</p>
+    if (!this.state.error) {
+      posts = this.state.posts.map(
+        post => {
+          return <Post clicked={() => {this.postSelectedHandler(post.id)}} key={post.id} title={post.title} author={post.author} />
+        }
+      );
+    }
 
     return (
       <div>
