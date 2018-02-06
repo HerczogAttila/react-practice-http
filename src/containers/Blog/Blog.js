@@ -9,7 +9,7 @@ class Blog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: 181
+      status: 182
     }
   }
 
@@ -22,6 +22,7 @@ class Blog extends Component {
             <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to={{
+                // pathname: this.props.match.url + '/new-post',
                 pathname: '/new-post',
                 hash: '#submit',
                 search: '?quick-submit=true'
