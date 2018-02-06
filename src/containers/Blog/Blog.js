@@ -14,7 +14,7 @@ class Blog extends Component {
       posts: [],
       selectedPostId: null,
       error: false,
-      status: 158
+      status: 172
     }
   }
 
@@ -39,26 +39,36 @@ class Blog extends Component {
 
   postSelectedHandler = (id) => {
     this.setState({selectedPostId: id});
-  }
+  };
 
   render() {
-    let posts = <p style={{textAlign: 'center'}}>Something went wrong!</p>
+    let posts = <p style={{textAlign: 'center'}}>Something went wrong!</p>;
     if (!this.state.error) {
       posts = this.state.posts.map(
         post => {
-          return <Post clicked={() => {this.postSelectedHandler(post.id)}} key={post.id} title={post.title} author={post.author} />
+          return <Post clicked={() => {
+            this.postSelectedHandler(post.id)
+          }} key={post.id} title={post.title} author={post.author}/>
         }
       );
     }
 
     return (
-      <div>
+      <div className="Blog">
         <div>Status: {(this.state.status / 423 * 100).toFixed(1)}%</div>
-        <section className="Posts">
+        <header>
+          <nav>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/new-post">New Post</a></li>
+            </ul>
+          </nav>
+        </header>
+        <section className="Blog">
           {posts}
         </section>
         <section>
-          <FullPost id={this.state.selectedPostId} />
+          <FullPost id={this.state.selectedPostId}/>
         </section>
         <section>
           <NewPost/>
