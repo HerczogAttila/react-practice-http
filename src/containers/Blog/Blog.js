@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
-import {Route, NavLink, Switch} from 'react-router-dom';
+import {Route, NavLink, Switch, Redirect} from 'react-router-dom';
 
 import './Blog.css';
 import Posts from './Posts/Posts';
 import NewPost from './NewPost/NewPost';
-import FullPost from './FullPost/FullPost';
 
 class Blog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: 192
+      status: 193
     }
   }
 
@@ -31,7 +30,6 @@ class Blog extends Component {
                 }}
               >Posts</NavLink></li>
               <li><NavLink to={{
-                // pathname: this.props.match.url + '/new-post',
                 pathname: '/new-post',
                 hash: '#submit',
                 search: '?quick-submit=true'
@@ -39,12 +37,11 @@ class Blog extends Component {
             </ul>
           </nav>
         </header>
-        {/*<Route path="/" exact render={() => <h1>Home</h1>} />*/}
-        {/*<Route path="/" render={() => <h1>Home 2</h1>} />*/}
         <Switch>
           <Route path="/new-post" component={NewPost}/>
           <Route path="/post/" component={Posts}/>
-          {/*<Route path="/:id" exact component={FullPost}/>*/}
+          <Redirect from="/" to="/post" />
+          {/*<Route path="/" component={Posts}/>*/}
         </Switch>
       </div>
     );
