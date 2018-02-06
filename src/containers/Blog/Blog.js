@@ -10,7 +10,7 @@ class Blog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: 191
+      status: 192
     }
   }
 
