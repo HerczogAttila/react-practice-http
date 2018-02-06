@@ -10,7 +10,7 @@ class Blog extends Component {
     super(props);
     this.state = {
       auth: false,
-      status: 196
+      status: 197
     }
   }
 
@@ -41,7 +41,8 @@ class Blog extends Component {
         <Switch>
           {this.state.auth ? <Route path="/new-post" component={NewPost}/> : null}
           <Route path="/post/" component={Posts}/>
-          <Redirect from="/" to="/post" />
+          <Route render={() => <h1>Not found</h1>} />
+          {/*<Redirect from="/" to="/post" />*/}
           {/*<Route path="/" component={Posts}/>*/}
         </Switch>
       </div>
