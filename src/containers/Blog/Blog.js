@@ -10,7 +10,7 @@ class Blog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: 189
+      status: 190
     }
   }
 
@@ -29,7 +29,7 @@ class Blog extends Component {
                   color: '#fa923f',
                   textDecoration: 'underline'
                 }}
-              >Home</NavLink></li>
+              >Posts</NavLink></li>
               <li><NavLink to={{
                 // pathname: this.props.match.url + '/new-post',
                 pathname: '/new-post',
