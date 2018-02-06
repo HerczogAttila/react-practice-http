@@ -13,6 +13,7 @@ class NewPost extends Component {
   };
 
   componentDidMount() {
+    //this.props.history.push('/posts');
     console.log(this.props);
   }
 

@@ -9,7 +9,8 @@ class Blog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: 195
+      auth: false,
+      status: 196
     }
   }
 
@@ -38,7 +39,7 @@ class Blog extends Component {
           </nav>
         </header>
         <Switch>
-          <Route path="/new-post" component={NewPost}/>
+          {this.state.auth ? <Route path="/new-post" component={NewPost}/> : null}
           <Route path="/post/" component={Posts}/>
           <Redirect from="/" to="/post" />
           {/*<Route path="/" component={Posts}/>*/}
