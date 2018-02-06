@@ -10,7 +10,7 @@ class Blog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: 190
+      status: 191
     }
   }
 
@@ -22,7 +22,7 @@ class Blog extends Component {
           <nav>
             <ul>
               <li><NavLink
-                to="/"
+                to="/post/"
                 exact
                 activeClassName="my-active"
                 activeStyle={{
@@ -41,10 +41,10 @@ class Blog extends Component {
         </header>
         {/*<Route path="/" exact render={() => <h1>Home</h1>} />*/}
         {/*<Route path="/" render={() => <h1>Home 2</h1>} />*/}
-        <Route path="/" exact component={Posts}/>
         <Switch>
           <Route path="/new-post" component={NewPost}/>
-          <Route path="/:id" exact component={FullPost}/>
+          <Route path="/post/" component={Posts}/>
+          {/*<Route path="/:id" exact component={FullPost}/>*/}
         </Switch>
       </div>
     );
